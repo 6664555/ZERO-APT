@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Secrets / local configuration
+.env
+
+# Experiment outputs (CoTs, CTI reports, batch results)
+outputs/
+# ...but keep the shipped CTI report templates
+!outputs/template/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

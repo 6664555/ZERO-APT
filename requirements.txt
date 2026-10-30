@@ -1,0 +1,9 @@
+# ZERO-APT core runtime dependencies (Python 3.10+)
+openai>=1.30
+requests>=2.31
+python-dotenv>=1.0
+pywinrm>=0.4.3
+# Action-library build pipeline (executor/ActionLib/build_action_llm.py)
+PyYAML>=6.0
+# STIX 2.1 CTI export (only needed for CTI_FORMAT=stix|both)
+stix2>=3.0

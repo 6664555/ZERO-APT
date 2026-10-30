@@ -1,0 +1,35 @@
+# ZERO-APT paper benchmark configuration (paper §4 Experimental Setup)
+# Two Windows Server 2022 VMs + ELK + WinRM. Credentials are always read from
+# environment variables, never hardcoded here.
+
+llm:
+  type: deepseek            # reproducibility uses deepseek; the paper uses Claude Opus 4.7 (set CLAUDE_BASE_URL to use claude)
+  # API key is read from the environment (DEEPSEEK_API_KEY / CLAUDE_API_KEY, see .env.example) — do not put it here
+
+targets:
+  primary:                  # primary target = domain controller ZEROAPTtarget
+    hostname: ZEROAPTtarget
+    ip: 192.168.32.139
+    os: windows server 2022
+    initial_user: User1
+    initial_password_env: TARGET_PASSWORD   # value comes from the environment, do not commit it
+    admin_user: Administrator
+  lateral:                  # S3 lateral-movement target, separate subnet
+    hostname: ZEROAPTtarget-DataServer
+    ip: 192.168.1.102
+    os: windows server 2022
+
+defender:
+  elk_url_env: ELASTICSEARCH_URL
+  index: winlogbeat-*
+  window_minutes: 1
+
+reset:                      # revert both VMs to their "ready" snapshot before each experiment (edit your paths)
+  vmrun: "/path/to/vmrun.exe"                       # TODO: your absolute vmrun path
+  snapshots:
+    - vmx: "/path/to/WindowsServer 2022.vmx"        # TODO: primary target VMX
+      name: ready
+    - vmx: "/path/to/DataServer.vmx"                # TODO: lateral target VMX
+      name: ready
+
+scenario: S1               # default single-scenario entry; run_batch.py overrides all of them

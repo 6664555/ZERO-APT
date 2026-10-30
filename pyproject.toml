@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zero-apt"
+version = "0.1.0"
+description = "ZERO-APT: a turn-based attacker-defender-judge framework for evaluating LLM penetration agents under intelligent defense"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Anlan Zheng" },
+    { name = "Tiantian Zhu" },
+]
+dependencies = [
+    "openai>=1.30",
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+    "pywinrm>=0.4.3",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+stix = ["stix2>=3.0"]
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2606.05567"
+
+[tool.setuptools.packages.find]
+include = ["core*", "agents*", "harness*", "executor*", "utils*"]
