@@ -153,7 +153,7 @@ tests/           5 suites, 39 tests — run all with the commands in Quick Start
 
 ## Lab Requirements (bring your own)
 
-To run against a real range you need to provide, outside this repo: Windows Server 2022 target VMs (see the paper's benchmark spec), Sysmon + winlogbeat shipping to an ELK stack, and WinRM access. Implement or reuse the four adapters in `core/interfaces.py` (`CommandRunner`, `LogSource`, `EnvironmentResetter`, `ScenarioInitializer`) — the engine never touches the lab directly.
+To run against a real range you need to provide, outside this repo: Windows Server 2022 target VMs (see the paper's benchmark spec), Sysmon + winlogbeat shipping to an ELK stack, and WinRM access. Implement or reuse the four adapters in `core/interfaces.py` (`CommandRunner`, `LogSource`, `EnvironmentResetter`, `ScenarioInitializer`).
 
 ## Security & Ethics
 
