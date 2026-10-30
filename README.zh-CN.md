@@ -153,7 +153,7 @@ tests/           5 个套件、39 个测试 —— 用快速开始里的命令�
 
 ## 靶场要求（自备）
 
-要对真实靶场运行，你需要在本仓库之外提供：Windows Server 2022 目标 VM（见论文基准说明）、把 Sysmon + winlogbeat 汇入 ELK、以及 WinRM 访问。实现或复用 `core/interfaces.py` 里的四个适配器（`CommandRunner`、`LogSource`、`EnvironmentResetter`、`ScenarioInitializer`）——引擎本身从不直接触碰靶场。
+要对真实靶场运行，你需要在本仓库之外提供：Windows Server 2022 目标 VM（见论文基准说明）、把 Sysmon + winlogbeat 汇入 ELK、以及 WinRM 访问。实现或复用 `core/interfaces.py` 里的四个适配器（`CommandRunner`、`LogSource`、`EnvironmentResetter`、`ScenarioInitializer`）。
 
 ## 安全与伦理
 
